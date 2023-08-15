@@ -1,0 +1,19 @@
+//-- colors
+$active-color: #666666;
+$active-color-light: #777777;
+$active-color-dark: #555555;
+$selected-color: #222222;
+$error-color: rgb(226, 41, 0);
+$bkg-color-active: rgba($active-color, .15);
+$bkg-color-hover: rgba($active-color, .08);
+
+//-- x,y spacing & padding
+$spacing-x: 7px;
+$spacing-y: 25px;
+$spacing-x-sm: 7px;
+$spacing-y-md: 25px;
+$padding-left-right: 12px;
+
+//-- icons
+$icon-size: 14px;
+$icon-color-active: $active-color;

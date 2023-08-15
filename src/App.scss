@@ -1,0 +1,83 @@
+@import './styles/base';
+
+// --------------------------- //
+$icon-base: "assets/";
+
+//-- search-field
+$search-field-width: 450px;
+$search-field-height: 30px;
+$search-icon-path: "#{$icon_base}Search.svg";
+
+//-- input-field
+$input-field-text-color: rgba($active-color, .75);
+// --------------------------- //
+
+.App {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .App-header {
+    height: 100px;
+    margin: $spacing-y 0px;
+    margin-top: $spacing-y*2;
+  }
+
+  .App-input {
+    margin: $spacing-y 0px;
+
+    .search-field {
+      position: relative;
+      width: $search-field-width;
+      height: $search-field-height;
+      background-color: $bkg-color-active;
+      outline: none;
+      border-radius: 4px;
+
+      input[type=text] {
+        width: calc(100% - 4px);
+        height: $search-field-height;
+        margin-left: 2px;
+        padding-left: 28px;
+        background-color: transparent;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid $active-color;
+        color: $input-field-text-color;
+
+        &:focus {
+          outline: none;
+          border-bottom: 1.5px solid $selected-color;
+        }
+
+        &.error {
+          color: $error-color;
+        }
+      }
+
+      .searchIcon {
+        position: absolute;
+        display: inline-block;
+        top: calc(($search-field-height - $icon-size)/2);
+        left: calc(($search-field-height - $icon-size)/2);
+        width: $icon-size;
+        height: $icon-size;
+        background-color: $active-color;
+        mask-size: $icon-size;
+        mask-repeat: none;
+        mask-image: url("#{$icon_base}Search.svg");
+      }
+
+      &:hover {
+        background-color: $bkg-color-hover;
+      }
+    }
+
+  }
+
+  .App-output {
+    margin: $spacing-y 0px;
+    margin-bottom: 75px;
+  }
+}
