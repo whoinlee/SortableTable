@@ -1,7 +1,8 @@
 import {
   useCallback,
   useState, 
-  useEffect 
+  useEffect,
+  useMemo
 } from 'react';
 import type { ChangeEvent } from 'react';
 import type { SortDir } from '../util/handleSorting';
@@ -47,7 +48,7 @@ const SortableTable = ({
     setSortedItems([...items]);
   }, [items]);
 
-  const handleSorting = (key:string, dir:SortDir) => {
+  const handleSorting = useCallback((key:string, dir:SortDir) => {
     if (key) {
       sortedItems.sort((a, b) => {
         if (a[key] === null) return 1;
@@ -61,14 +62,14 @@ const SortableTable = ({
         );
       });
     }
-  }
+  }, [sortedItems]);
 
-  const onHeaderClick = (key:string) => {
+  const onHeaderClick = useCallback((key:string) => {
     let dir:SortDir = (sortDir === "asc" && sortKey) ? "desc" : "asc";
     setSortKey(key);
     setSortDir(dir);
     handleSorting(key, dir); 
-  }
+  }, [handleSorting, sortDir, sortKey]);
 
   //-- perPage change handler
   const onPerPageChange = (e:ChangeEvent<HTMLSelectElement>) => {
@@ -121,38 +122,41 @@ const SortableTable = ({
     };
   }, [onKeyDownHandler]);
 
-  return (
-    <div className="sortable-table">
-      <table>
-        <thead>
-          <tr className="sortable-table__headerRow">
-          { headers &&
-            headers.map(({name, key, sortable}) => 
+  const headerRow = useMemo(() => 
+    headers.map(({name, key, sortable}) => 
               <th key={`tableHeader_${name}`} 
                   className={`sortable-table__header ${sortable ? "" : "non-sortable"}`}
                   onClick={sortable ? () => onHeaderClick(key) : undefined}>
                 {name}
                 {sortable && <span className={`sortIcon ${(key === sortKey)? (sortDir === "asc")? "up" : "down" : ""}`} />}
-              </th> 
-            )
-          }
+              </th>)
+  , [headers, onHeaderClick, sortDir, sortKey]);
+
+  const bodyRows = useMemo(() => 
+    sortedItems.slice(perPage*(currentPage-1), perPage*currentPage).map((item, i) => {
+      return (
+        <tr key={`itemRow_${i}`} className="sortable-table__itemRow">
+          { headers.map((header, j) => {
+              return (
+                <td key={`tableItem_${i}${j}`} className="sortable-table__item">{item[header.key].toLocaleString("en-US")}</td>
+              )
+          })}
+        </tr>
+      )
+    })
+  , [sortedItems, perPage, currentPage, headers]);
+
+  return (
+    <div className="sortable-table">
+      <table>
+        <thead>
+          <tr className="sortable-table__headerRow">
+          { headerRow }
           </tr>
         </thead>
         {/* - */}
         <tbody>
-          { sortedItems && sortedItems.length>0 && 
-            sortedItems.slice(perPage*(currentPage-1), perPage*currentPage).map((item, i) => {
-              return (
-                <tr key={`itemRow_${i}`} className="sortable-table__itemRow">
-                  { headers.map((header, j) => {
-                      return (
-                        <td key={`tableItem_${i}${j}`} className="sortable-table__item">{item[header.key].toLocaleString("en-US")}</td>
-                      )
-                  })}
-                </tr>
-              )
-            })
-          }
+          { bodyRows }
         </tbody>
         {/* - */}
         <tfoot>
