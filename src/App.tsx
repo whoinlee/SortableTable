@@ -7,6 +7,7 @@ import type { City } from 'api/getCities';
 import type { Header } from 'components/SortableTable';
 import { getCities } from 'api/getCities';
 import SortableTable from './components/SortableTable';
+import useDebounce from './util/useDebounce';
 import './App.scss';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
   //-- search-field input related
   const PLACE_HOLDER = 'Search for a city';
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const debouncedSearchTerm = useDebounce(searchTerm);
   const [searchPlaceHolder, setSearchPlaceHolder] = useState<string>(PLACE_HOLDER);
   // const [lastSearchTime, setLastSearchTime] = useState<number>();
 
@@ -46,8 +48,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    runSearch(searchTerm);
-  }, [runSearch, searchTerm]);
+    // runSearch(searchTerm);
+    runSearch(debouncedSearchTerm);
+  }, [runSearch, debouncedSearchTerm]);
 
   //-- search-field handlers
   const onSearchFieldFocus = (event: FocusEvent<HTMLInputElement>) => {
