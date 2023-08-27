@@ -48,9 +48,10 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // runSearch(searchTerm);
-    runSearch(debouncedSearchTerm);
-  }, [runSearch, debouncedSearchTerm]);
+    runSearch(searchTerm);
+    // runSearch(debouncedSearchTerm);
+  // }, [runSearch, debouncedSearchTerm]);
+  }, [runSearch, searchTerm]);
 
   //-- search-field handlers
   const onSearchFieldFocus = (event: FocusEvent<HTMLInputElement>) => {
