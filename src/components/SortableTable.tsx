@@ -132,20 +132,6 @@ const SortableTable = ({
               </th>)
   , [headers, sortDir, onHeaderClick, sortKey]);
 
-  // const bodyRows = useMemo(() => 
-  //   sortedItems.slice(perPage*(currentPage-1), perPage*currentPage).map((item, i) => {
-  //     return (
-  //       <tr key={`itemRow_${i}`} className="sortable-table__itemRow">
-  //         { headers.map((header, j) => {
-  //             return (
-  //               <td key={`tableItem_${i}${j}`} className="sortable-table__item">{item[header.key].toLocaleString("en-US")}</td>
-  //             )
-  //         })}
-  //       </tr>
-  //     )
-  //   })
-  // , [sortedItems, perPage, currentPage, headers]);
-
   return (
     <div className="sortable-table">
       <table>
