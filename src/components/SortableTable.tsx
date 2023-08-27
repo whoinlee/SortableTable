@@ -130,21 +130,21 @@ const SortableTable = ({
                 {name}
                 {sortable && <span className={`sortIcon ${(key === sortKey)? (sortDir === "asc")? "up" : "down" : ""}`} />}
               </th>)
-  , [headers, onHeaderClick, sortDir, sortKey]);
+  , [headers, sortDir, onHeaderClick, sortKey]);
 
-  const bodyRows = useMemo(() => 
-    sortedItems.slice(perPage*(currentPage-1), perPage*currentPage).map((item, i) => {
-      return (
-        <tr key={`itemRow_${i}`} className="sortable-table__itemRow">
-          { headers.map((header, j) => {
-              return (
-                <td key={`tableItem_${i}${j}`} className="sortable-table__item">{item[header.key].toLocaleString("en-US")}</td>
-              )
-          })}
-        </tr>
-      )
-    })
-  , [sortedItems, perPage, currentPage, headers]);
+  // const bodyRows = useMemo(() => 
+  //   sortedItems.slice(perPage*(currentPage-1), perPage*currentPage).map((item, i) => {
+  //     return (
+  //       <tr key={`itemRow_${i}`} className="sortable-table__itemRow">
+  //         { headers.map((header, j) => {
+  //             return (
+  //               <td key={`tableItem_${i}${j}`} className="sortable-table__item">{item[header.key].toLocaleString("en-US")}</td>
+  //             )
+  //         })}
+  //       </tr>
+  //     )
+  //   })
+  // , [sortedItems, perPage, currentPage, headers]);
 
   return (
     <div className="sortable-table">
@@ -156,7 +156,18 @@ const SortableTable = ({
         </thead>
         {/* - */}
         <tbody>
-          { bodyRows }
+          { sortedItems.slice(perPage*(currentPage-1), perPage*currentPage).map((item, i) => {
+              return (
+                <tr key={`itemRow_${i}`} className="sortable-table__itemRow">
+                  { headers.map((header, j) => {
+                      return (
+                        <td key={`tableItem_${i}${j}`} className="sortable-table__item">{item[header.key].toLocaleString("en-US")}</td>
+                      )
+                  })}
+                </tr>
+              )
+            })
+          }
         </tbody>
         {/* - */}
         <tfoot>
@@ -183,7 +194,6 @@ const SortableTable = ({
                           iconpath="/assets/ChevronLeft.svg"
                           callback={toPrevPageHandler}
                           disabled={currentPage === 1} />
-              
               <IconButton name="nextPage"
                           iconpath="/assets/ChevronRight.svg"
                           callback={toNextPageHandler}
