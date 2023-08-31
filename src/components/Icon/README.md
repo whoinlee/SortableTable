@@ -20,7 +20,7 @@ CaretDown:  <img src="../../assets/CaretDown.svg" width="14" height="14">
 
 CaretUp:  <img src="../../assets/CaretUp.svg" width="14" height="14">
 
-ChevronLeft:  <img src="../../assets/ChevronLeft.svg" width="14" height="14" style="border:1px solid #1b6b6f; padding:15px;"><img src="../../assets/ChevronRight.svg" width="14" height="14" style="vertical-align:bottom">
+ChevronLeft:  <img src="../../assets/ChevronLeft.svg" width="14" height="14" style="border:1px solid #1b6b6f; padding:15px;">
 
 ChevronRight:  <img src="../../assets/ChevronRight.svg" width="14" height="14" style="padding-top:20px">
 
