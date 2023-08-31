@@ -6,7 +6,7 @@ import {
 } from 'react';
 import type { ChangeEvent } from 'react';
 import type { SortDir } from '../util/handleSorting';
-import IconButton from './base/IconButton/IconButton';
+import IconButton from './IconButton/IconButton';
 import "./SortableTable.scss";
 
 export type Header = {
@@ -15,7 +15,7 @@ export type Header = {
   sortable?: boolean;           //-- whether the column is sortable
 }
 
-type SortableTableProps = {
+interface SortableTableProps {
   headers: Header[];
   items: any[];                 //-- table data
   perPages?: number[];          //-- for "perPage" select options

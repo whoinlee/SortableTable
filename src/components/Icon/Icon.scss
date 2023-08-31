@@ -1,0 +1,25 @@
+$icon-width: 14px;  //16px??
+$icon-height: 14px;
+
+.icon {
+  min-width: $icon-width;
+  min-height: $icon-height;
+
+  // cursor: pointer;
+  // opacity: 1;
+
+  // .icon {
+  //   opacity: .5;
+  // }
+
+  // &.disabled {
+  //   opacity: .4;
+  //   cursor: default;
+  // }
+
+  // &:hover:not(.disabled) {
+  //   .icon {
+  //     opacity: 1;
+  //   }
+  // }
+}

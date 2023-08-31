@@ -1,7 +1,6 @@
-import {  useEffect, 
-          useCallback, 
-          useState,
-} from 'react';
+import {  useEffect, useCallback, useState, 
+  // useRef
+ } from 'react';
 import type { ChangeEvent, FocusEvent , KeyboardEvent } from 'react';
 import type { City } from 'api/getCities';
 import type { Header } from 'components/SortableTable';
@@ -21,7 +20,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const debouncedSearchTerm = useDebounce(searchTerm);
   const [searchPlaceHolder, setSearchPlaceHolder] = useState<string>(PLACE_HOLDER);
-  // const [lastSearchTime, setLastSearchTime] = useState<number>();
+  // const inputRef = useRef<HTMLInputElement|undefined>();
 
   //-- header data for sortable-table
   const headers:Header[] = [
@@ -80,6 +79,7 @@ const App = () => {
       <form className="App-input">
         <div className={`search-field ${isError? "error" : ""}`}>
           <input id="search" name="search" type="text" aria-label="search"
+                //  ref={inputRef}
                  className={`searchInput ${isError? "error" : ""}`}
                  placeholder= {searchPlaceHolder}
                  onFocus={onSearchFieldFocus} 
