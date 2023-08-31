@@ -18,11 +18,11 @@ ArrowUp:    <img src="../../assets/ArrowUp.svg" width="14" height="14" style="ve
 
 CaretDown:  <img src="../../assets/CaretDown.svg" width="14" height="14" style="vertical-align:bottom">
 
-CaretUp:  <img src="../../assets/CaretUp.svg" width="14" height="14">
+CaretUp:  <img src="../../assets/CaretUp.svg" width="14" height="14" style="vertical-align:middle">
 
-ChevronLeft:  <img src="../../assets/ChevronLeft.svg" width="14" height="14">
+ChevronLeft:  <img src="../../assets/ChevronLeft.svg" width="14" height="14" style="vertical-align:top">
 
-ChevronRight:  <img src="../../assets/ChevronRight.svg" width="14" height="14">
+ChevronRight:  <img src="../../assets/ChevronRight.svg" width="14" height="14" style="padding-top:2px">
 
 FirstPage:  <img src="../../assets/FirstPage.svg" width="14" height="14">
 
