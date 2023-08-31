@@ -12,22 +12,22 @@ To add a new icon, it needs to be standardized before adding the single SVG path
 
 
 # Available Icons
-ArrowDown:  <img src="../../assets/ArrowDown.svg" width="18" height="18">
+ArrowDown:  <img src="../../assets/ArrowDown.svg" width="14" height="14">
 
 ArrowUp:    <img src="../../assets/ArrowUp.svg" width="14" height="14">
 
-CaretDown:  <img src="../../assets/CaretDown.svg" width="16" height="16">
+CaretDown:  <img src="../../assets/CaretDown.svg" width="14" height="14">
 
-CaretUp:  <img src="../../assets/CaretUp.svg" width="16" height="16">
+CaretUp:  <img src="../../assets/CaretUp.svg" width="14" height="14">
 
-ChevronLeft:  <img src="../../assets/ChevronLeft.svg" width="16" height="16">
+ChevronLeft:  <img src="../../assets/ChevronLeft.svg" width="14" height="14">
 
-ChevronRight:  <img src="../../assets/ChevronRight.svg" width="16" height="16">
+ChevronRight:  <img src="../../assets/ChevronRight.svg" width="14" height="14">
 
-FirstPage:  <img src="../../assets/FirstPage.svg" width="16" height="16">
+FirstPage:  <img src="../../assets/FirstPage.svg" width="14" height="14">
 
-LastPage:  <img src="../../assets/LastPage.svg" width="16" height="16">
+LastPage:  <img src="../../assets/LastPage.svg" width="14" height="14">
 
-Search:  <img src="../../assets/Search.svg" width="16" height="16">
+Search:  <img src="../../assets/Search.svg" width="14" height="14">
 
-Sort:  <img src="../../assets/Sort.svg" width="16" height="16">
+Sort:  <img src="../../assets/Sort.svg" width="14" height="14">
