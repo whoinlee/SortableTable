@@ -12,11 +12,11 @@ To add a new icon, it needs to be standardized before adding the single SVG path
 
 
 # Available Icons
-ArrowDown:  <img src="../../assets/ArrowDown.svg" width="14" height="14">
+ArrowDown:  <img src="../../assets/ArrowDown.svg" width="14" height="14" style="vertical-align:bottom">
 
-ArrowUp:    <img src="../../assets/ArrowUp.svg" width="14" height="14">
+ArrowUp:    <img src="../../assets/ArrowUp.svg" width="14" height="14" style="vertical-align:bottom">
 
-CaretDown:  <img src="../../assets/CaretDown.svg" width="14" height="14">
+CaretDown:  <img src="../../assets/CaretDown.svg" width="14" height="14" style="vertical-align:bottom">
 
 CaretUp:  <img src="../../assets/CaretUp.svg" width="14" height="14">
 
