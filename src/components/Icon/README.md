@@ -12,7 +12,7 @@ To add a new icon, it needs to be standardized before adding the single SVG path
 
 
 # Available Icons
-ArrowDown:  <img src="../../assets/ArrowDown.svg" width="16" height="16">
+ArrowDown:  <img src="../../assets/ArrowDown.svg" width="18" height="18">
 
 ArrowUp:    <img src="../../assets/ArrowUp.svg" width="16" height="16">
 
