@@ -9,9 +9,10 @@ To add a new icon, it needs to be standardized before adding the single SVG path
 3. In some cases the designer may have used a shape element and not converted it to a path. In this case, an image editing client such as Inkscape or [GIMP](https://www.gimp.org/downloads/) would need to be used to import the image and convert the object to a path. The path would then need to replace the shape in the source image manually.
 
 4. In some cases, the scale is too large, Inkscape or GIMP have the ability to lock the aspect ratio and scale accordingly.
+<br>
 
 
-# Available Icons
+## Available Icons
 ArrowDown:  <img src="../../assets/ArrowDown.svg" width="14" height="14">
 
 ArrowUp:    <img src="../../assets/ArrowUp.svg" width="14" height="14">
