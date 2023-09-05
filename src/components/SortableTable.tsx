@@ -7,6 +7,7 @@ import {
 import type { ChangeEvent } from 'react';
 import type { SortDir } from '../util/handleSorting';
 import IconButton from './IconButton/IconButton';
+// import IconButton2 from './IconButton/IconButton';
 import "./SortableTable.scss";
 
 export type Header = {

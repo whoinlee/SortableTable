@@ -17,8 +17,9 @@ const App = () => {
 
   //-- search-field input related
   const PLACE_HOLDER = 'Search for a city';
+  const MIN_SEARCH_KICKIN = 150;  //-- search only kicks in after 150ms since the last change to the search term
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const debouncedSearchTerm = useDebounce(searchTerm);
+  const debouncedSearchTerm = useDebounce(searchTerm, MIN_SEARCH_KICKIN);
   const [searchPlaceHolder, setSearchPlaceHolder] = useState<string>(PLACE_HOLDER);
   // const inputRef = useRef<HTMLInputElement|undefined>();
 
@@ -32,18 +33,18 @@ const App = () => {
   ];
 
   const runSearch = useCallback(async (term: string) => {
-      try 
-      {
-        setDataLoaded(false);
-        const searchResult = await getCities({ searchTerm: term });
-        setCities(searchResult);
-        setIsError(false);
-        setDataLoaded(true);
-      } catch (err: any) {
-        setError(err);
-        setIsError(true);
-        setDataLoaded(false);
-      }
+    try 
+    {
+      setDataLoaded(false);
+      const searchResult = await getCities({ searchTerm: term });
+      setCities(searchResult);
+      setIsError(false);
+      setDataLoaded(true);
+    } catch (err: any) {
+      setError(err);
+      setIsError(true);
+      setDataLoaded(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -78,7 +79,8 @@ const App = () => {
       </header>
       <form className="App-input">
         <div className={`search-field ${isError? "error" : ""}`}>
-          <input id="search" name="search" type="text" aria-label="search"
+          <input id="search" name="search" type="text" 
+                 aria-label="search"
                 //  ref={inputRef}
                  className={`searchInput ${isError? "error" : ""}`}
                  placeholder= {searchPlaceHolder}
